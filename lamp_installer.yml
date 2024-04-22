@@ -1,0 +1,37 @@
+---
+- name: Install and Configure LAMP stack and deploy PHP (Laravel) App
+  hosts: all
+  vars:
+    target_host: "192.168.20.4"
+
+  tasks:
+    - name: Copy script from master to slave
+      copy:
+        src: ~/lampStack.sh
+        dest: ~/lampStack.sh
+        mode: 0755
+
+    - name: Execute script on slave
+      command: ~/lampStack.sh
+
+    - name: Create server uptime log file
+      file:
+        path: ~/logfolder/server_uptime.log
+        state: touch
+
+    - name: Check if IP address is accessible on browser
+      uri:
+        url: "http://{{ target_host }}"
+        method: GET
+      register: response
+
+    - name: Print status message
+      debug:
+        msg: "Laravel app on {{ target_host }} is {{ 'accessible' if response.status == 200 else 'inaccessible' }}"
+
+    - name: Add cron job to check server uptime
+      cron:
+        name: "Check Server Uptime"
+        minute: 0
+        hour: 0
+        job: "uptime >> ~/logfolder/server_uptime.log"
