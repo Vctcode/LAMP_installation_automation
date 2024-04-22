@@ -9,6 +9,7 @@ This task is to automate the process of installing and configuring LAMP stack i.
 1. [Introduction](#introduction)
 2. [End Result](#end-result)
 3. [The Process](#the-process)
+4. [Resources](#resources)
 
 ## End Result
 
@@ -175,3 +176,11 @@ This task is to automate the process of installing and configuring LAMP stack i.
     ![execute-playbook](images/playbook.PNG)
     Playbook success
     ![playbook-successful](images/playbook_successful.PNG)
+
+## Resources
+
+- [Youtube](https://www.youtube.com/)
+- [Code With Susan - Youtube](https://www.youtube.com/watch?v=iye4lmB6diE&t=312s)
+- [Code With Susan - Notes](https://codewithsusan.com/notes/deploy-laravel-on-apache)
+- [Chatgpt](https://chat.openai.com/)
+- [Google](https://www.google.com)
